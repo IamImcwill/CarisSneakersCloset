@@ -1,0 +1,45 @@
+﻿@model Product
+
+<h3>@Model.Name Information</h3>
+
+
+
+<table class="table">
+    <tr>
+        <th>SneakersID</th>
+        <th>Brand</th>
+        <th>Name</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Release Date</th>
+        <th>Location</th>
+        <th>In Stock</th>
+        <th>Is Released</th>
+    </tr>
+    <tr>
+
+        <td>@Model.SneakersID</td>
+        <td>@Model.Brand</td>
+        <td>@Model.Name</td>
+        <td>@Model.Color</td>
+        <td>@Model.Size</td>
+        <td>@Model.Price</td>
+        <td>@Model.Release_Date</td>
+        <td>@Model.Location</td>
+        <td>@Model.In_Stock</td>
+        <td>@Model.Is_Released</td>
+    </tr>
+    </table>
+
+<div style="display: block">
+    <a href="/Product/UpdateProduct/@Model.SneakersID">Update this Product</a>
+</div>
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteProduct", "Product", "Post"))
+    {
+        <input type="hidden" asp-for="SneakersID" value="@Model.SneakersID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this sneaker" />
+    }
+</div>
